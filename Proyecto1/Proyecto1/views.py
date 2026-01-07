@@ -1,11 +1,20 @@
 from django.http import HttpResponse
 from datetime import datetime
+from django.template import Template, Context
 
 def saludo(request):        #primera vista
     return HttpResponse("hola wey")
 
 def despedida(request):        #segunda vista
-    return HttpResponse("aaaaaaadios")
+    doc_externo= open("C:/Users/perea/Desktop/django/cursoDjango/Proyecto1/Proyecto1/plantillas/miplantilla.html")  #cargo documento externo
+    plt=doc_externo.read()     #lo abro y lo lee
+    doc_externo.close()         #lo cierra  
+    plt = Template(plt)         # Convertimos el texto plano en un objeto Template de Django 
+    nombre= "Jesus" #para poder pasarle a la plantilla el valor en el contexto
+    apellido= "Perea"
+    ctx = Context({"nombre_persona": nombre, "apellido_persona": apellido})                             #creo el contexto, siempre en diccionario obligatorio aunque esté vacio
+    documento = plt.render(ctx)                 #renderizamos el documemto
+    return HttpResponse(documento)
 
 def dameFecha (request):            #tercera vista, esta será dinamica ya que la hora ira cambiando
     fecha_actual= datetime.now()
