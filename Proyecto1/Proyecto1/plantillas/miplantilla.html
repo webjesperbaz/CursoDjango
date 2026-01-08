@@ -3,6 +3,13 @@
         <h1>Hola esta es tu primera plantilla</h1>
         <p>El nombre de la persona es: {{nombre_persona}} {{apellido_persona}}</p>  <!-- rescatamos las variables del contesto de la vista-->
         <p>Y la hora actual es: {{dia_actual.day}} / {{dia_actual.month}} / {{dia_actual.year}}</p>
+        
+        {%if nombre_persona == "Jesus" %}
+            <p> El alumno es el correcto: {{nombre_persona}} </p>
+        {%else%}
+            <p>El alumno no es Jesus</p>
+        {%endif%}
+        
         <p><strong>Temas del curso:</strong></p>
         <p> <!-- vamos a listar todos los tema del diccionario de la vista def despedida -->
 
