@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            {% block title %} {% endblock %}        <!--aqui irá el contenido cambiante en las paginas hijas-->
+        </title>
+    </head>
+    <body>
+        <h1 style="background-color: darkgreen; color: white; text-align: center;">Curso Python</h1>
+
+        {% include "barra.html" %}
+
+        <h3>Curso para aprender a usar Django</h3>
+
+        {% block content %} {% endblock %}           <!--aqui irá el contenido cambiante en las paginas hijas-->
+
+        <p style="background-color: darkgreen; color: white; text-align: center;">Cursos gratuitos. Escuela de aprendizaje</p>
+    
+    </body>
+</html>

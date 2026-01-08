@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Proyecto1.views import saludo, despedida, dameFecha, calculaEdad
+from Proyecto1.views import saludo, despedida, dameFecha, calculaEdad, cursoC, cursoCss
 
 urlpatterns = [
     path('admin/', admin.site.urls),    #1º Url -> (ruta que metemos en la url, llamada a la función)
@@ -24,4 +24,7 @@ urlpatterns = [
     path("despedida/", despedida ),     #3º Url
     path("fecha/", dameFecha ),     #4º Url
     path("edadFutura/<int:edad>/<int:agno>/", calculaEdad ),     #5º Url, hay que indicarle que hay un parametro, o dos
+    path("cursoC/", cursoC ),
+    path("cursoCss/", cursoCss ),
+
 ]

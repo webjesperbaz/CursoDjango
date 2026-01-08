@@ -1,5 +1,10 @@
-<html>
+<html style="background-color: rgb(211, 211, 197);">
+
     <body>
+
+        {% include "barra.html" %}      <!--incrustamos una plantilla dentro de esta-->
+
+
         <h1>Hola esta es tu primera plantilla</h1>
         <p>El nombre de la persona es: {{nombre_persona}} {{apellido_persona}}</p>  <!-- rescatamos las variables del contesto de la vista-->
         <p>Y la hora actual es: {{dia_actual.day}} / {{dia_actual.month}} / {{dia_actual.year}}</p>
