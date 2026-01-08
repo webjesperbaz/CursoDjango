@@ -2,5 +2,25 @@
     <body>
         <h1>Hola esta es tu primera plantilla</h1>
         <p>El nombre de la persona es: {{nombre_persona}} {{apellido_persona}}</p>  <!-- rescatamos las variables del contesto de la vista-->
+        <p>Y la hora actual es: {{dia_actual.day}} / {{dia_actual.month}} / {{dia_actual.year}}</p>
+        <p><strong>Temas del curso:</strong></p>
+        <p> <!-- vamos a listar todos los tema del diccionario de la vista def despedida -->
+
+            <ul>
+                {%if temas %}
+                    {% for elTema in temas %}  <!-- para cada tema en temas... -->
+                        <li>
+                            {{elTema}}
+                        </li>
+                    {% endfor %}
+                {% else %}
+                        <p>No hay elementos que mostrar...</p>
+                {% endif %}
+
+            </ul>
+
+
+
+        </p>
     </body>
 </html>

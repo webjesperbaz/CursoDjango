@@ -6,13 +6,19 @@ def saludo(request):        #primera vista
     return HttpResponse("hola wey")
 
 def despedida(request):        #segunda vista
+
+    nombre= "Jesus" #para poder pasarle a la plantilla el valor en el contexto
+    apellido= "Perea"
+    dia= datetime.now()
+    temasDelCurso=["plantillas", "modelos", "formularios", "vistas", "Despliegue"]
+
+
     doc_externo= open("C:/Users/perea/Desktop/django/cursoDjango/Proyecto1/Proyecto1/plantillas/miplantilla.html")  #cargo documento externo
     plt=doc_externo.read()     #lo abro y lo lee
     doc_externo.close()         #lo cierra  
     plt = Template(plt)         # Convertimos el texto plano en un objeto Template de Django 
-    nombre= "Jesus" #para poder pasarle a la plantilla el valor en el contexto
-    apellido= "Perea"
-    ctx = Context({"nombre_persona": nombre, "apellido_persona": apellido})                             #creo el contexto, siempre en diccionario obligatorio aunque esté vacio
+    
+    ctx = Context({"nombre_persona": nombre, "apellido_persona": apellido, "dia_actual": dia, "temas": temasDelCurso})       #creo el contexto, siempre en diccionario obligatorio aunque esté vacio
     documento = plt.render(ctx)                 #renderizamos el documemto
     return HttpResponse(documento)
 
