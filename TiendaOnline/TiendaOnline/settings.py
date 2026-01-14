@@ -74,9 +74,18 @@ WSGI_APPLICATION = 'TiendaOnline.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',               #conectar a sqlite3 (viene por defecto)
+    #     'NAME': BASE_DIR / 'db.sqlite3',                      #base de datos que hemos creado en postgre
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',     #conectar a Postgre
+        'NAME': 'articulosclientes',                            #base de datos que hemos creado en postgre
+        'USER': 'postgres',
+        'PASSWORD': 'userYo',
+        'HOST': '127.0.0.1',
+        'DATABASE_PORT': '5432'
+
     }
 }
 
