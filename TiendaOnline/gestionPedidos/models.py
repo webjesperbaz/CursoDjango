@@ -4,9 +4,12 @@ from django.db import models
 
 class Clientes(models.Model):
     nombre=models.CharField(max_length=30)
-    direccion=models.CharField(max_length=50)
-    email=models.EmailField()
-    tfno=models.CharField(max_length=7)
+    direccion=models.CharField(max_length=50, verbose_name="La dirección")      #verbose_name="La dirección"  para que en panel de administracion aparezca con ese nombre
+    email=models.EmailField(blank=True, null=True)                              #(blank=True, null=True)  para que pueda dejarse en blanco 
+    tfno=models.CharField(max_length=8)
+
+    def __str__(self):                                      #para que en el panel de adminostracion salgan los nombres
+        return self.nombre
 
 class Articulos(models.Model):
     nombre=models.CharField(max_length=30)
