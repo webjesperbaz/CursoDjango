@@ -16,8 +16,8 @@ class FiltroArticulos(admin.ModelAdmin):
 #clase para filtrar los pedidos por fecha:
 class PedidosFiltroFecha(admin.ModelAdmin):
     list_display=("nombre", "fecha")
-    list_filter=("nombre", "fecha")
-
+    list_filter=("nombre", "fecha")                     #filtro
+    date_hierarchy=("fecha")                            #filtro por barra de meses arriba
     
 admin.site.register(Clientes, LoQueQuieroQueSeVea)
 admin.site.register(Articulos, FiltroArticulos)
