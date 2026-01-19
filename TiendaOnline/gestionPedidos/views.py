@@ -22,3 +22,10 @@ def buscar(request):
         mensaje="No has introducido nada."
         
     return HttpResponse(mensaje)
+
+
+def contacto(request):
+    if request.method=="POST":              #si detecta metodo post desde el formulario?
+         return render(request, "gracias.html")
+
+    return render(request, "contacto.html")
